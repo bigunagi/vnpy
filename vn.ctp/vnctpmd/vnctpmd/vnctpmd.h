@@ -1,7 +1,9 @@
 //说明部分
 
 //系统
+#ifdef WIN32
 #include "stdafx.h"
+#endif
 #include <string>
 #include <queue>
 
@@ -131,9 +133,12 @@ void getInt(dict d, string key, int* value);
 void getDouble(dict d, string key, double* value);
 
 
-//从字典中获取某个建值对应的字符串，并赋值到请求结构体对象的值上
+//从字典中获取某个建值对应的字符，并赋值到请求结构体对象的值上
 void getChar(dict d, string key, char* value);
 
+
+//从字典中获取某个建值对应的字符串，并赋值到请求结构体对象的值上
+void getStr(dict d, string key, char* value);
 
 
 ///-------------------------------------------------------------------------------------
@@ -255,7 +260,7 @@ public:
 
 	virtual void onRspUserLogout(dict data, dict error, int id, bool last) {};
 
-	virtual void onRspError(dict data, int id, bool last) {};
+	virtual void onRspError(dict error, int id, bool last) {};
 
 	virtual void onRspSubMarketData(dict data, dict error, int id, bool last) {};
 
